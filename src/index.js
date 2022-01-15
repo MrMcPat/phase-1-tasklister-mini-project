@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
+//builds the to do list
 function listToDo(todo) {
   let p = document.createElement("li");
   let btn = document.createElement("button");
@@ -22,11 +22,12 @@ function listToDo(todo) {
   let editText = document.createElement("input")
   editText.classList.add("editBox");
 
-//click event
+//edit button
   btn.addEventListener("click", handleDelete);
   editBtn.addEventListener("click", () => {
-    p.append(editText);
+  p.append(editText);
   });
+//edit contents in list
   editText.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       p.textContent = editText.value;
@@ -41,10 +42,12 @@ function listToDo(todo) {
   document.querySelector("#tasks").appendChild(p);
 }
 
+//deletes list item
 function handleDelete(event) {
   event.target.parentNode.remove();
 }
 
+//drop down for priority colors
 function selectHandler(event) {
   selectedColor = event.target.value;
 }
